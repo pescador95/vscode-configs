@@ -1,0 +1,38 @@
+name: Local Config
+version: 1.0.0
+schema: v1
+
+models:
+  - name: Agent
+    provider: lmstudio
+    apiBase: http://localhost:1234/v1
+    model: prism-ml/bonsai-27b
+    roles:
+      - chat
+      - edit
+      - apply
+
+  - name: Autocomplete
+    provider: lmstudio
+    apiBase: http://localhost:1234/v1
+    model: qwen2.5-coder-1.5b-instruct
+    roles:
+      - autocomplete
+
+  - name: Embeddings
+    provider: lmstudio
+    apiBase: http://localhost:1234/v1
+    model: nomic-embed-code
+    roles:
+      - embed
+
+context:
+  - provider: codebase
+  - provider: file
+  - provider: folder
+  - provider: code
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: repo-map
+  - provider: docs
