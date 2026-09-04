@@ -1,9 +1,8 @@
 ---
-
 name: Global Documentation Rules
 alwaysApply: true
 description: Universal documentation standards for all projects. Documentation must accurately reflect the implemented business domains, requirements, architecture and behavior of the system.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 # Documentation Rules
 
