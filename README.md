@@ -42,7 +42,7 @@ On Windows, run the script using **Git Bash**.
 
 The script generates the appropriate MCP configuration for the current operating system. 
 
-> **Note** The `sources` directory is the **root directory containing the source code projects** that the MCP filesystem server can access.
+> **Note** The `sources` directory is the **root directory containing the source code projects** that the MCP filesystem server can access. It must be located in the user's home directory (for example, /home/user/sources on Linux).
 
 Example:
 
@@ -57,7 +57,7 @@ mcpServers:
     command: npx
     args:
       - -c
-      - exec npx -y @modelcontextprotocol/server-filesystem "/sources"
+      - exec npx -y @modelcontextprotocol/server-filesystem "/home/<user>/sources"
     env: {}        
 ```
 
