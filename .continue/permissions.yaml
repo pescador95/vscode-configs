@@ -1,0 +1,31 @@
+# # cn tool permissions
+
+# # Tools that are automatically allowed without prompting
+# allow: []
+
+# # Tools that require user confirmation before execution
+# ask: []
+
+# # Tools that are completely excluded (model won't know they exist)
+# exclude: []
+
+allow:
+  - Write
+  - Read
+  - List
+  - Search
+  - Fetch
+  - Diff
+  - AskQuestion
+  - Checklist
+  - Status
+  - CheckBackgroundJob
+  - ReportFailure
+  - UploadArtifact
+
+ask:
+  - Edit
+  - MultiEdit
+  - Bash
+
+exclude: []
