@@ -1,6 +1,8 @@
 ---
 name: Technical Documentation Rules
 alwaysApply: false
+globs:
+  - "**/*.md"
 description: Rules for documenting system architecture, implementation, APIs, data, integrations, infrastructure, configuration, and technical behavior.
 ---
 # Technical Documentation Rules

@@ -1,6 +1,7 @@
 ---
 name: Requirements Elicitation Rules
 alwaysApply: false
+globs: ["**/requirements/**/*.md", "**/requirements.md"]
 description: Rules for eliciting, analyzing, structuring, validating, and documenting business and system requirements.
 ---
 # Requirements Elicitation Rules

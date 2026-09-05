@@ -1,6 +1,8 @@
 ---
 name: Global Documentation Rules
 alwaysApply: false
+globs:
+  - "**/*.md"
 description: Governs documentation creation, maintenance, organization, validation, and repository changes.
 
 ---

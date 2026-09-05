@@ -1,6 +1,8 @@
 ---
 name: Business Documentation Rules
 alwaysApply: false
+globs:
+  - "**/*.md"
 description: Rules for documenting business domains, processes, rules, requirements, actors, and system behavior from a business perspective.
 ---
 # Business Documentation Rules

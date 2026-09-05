@@ -1,6 +1,7 @@
 ---
 name: Acceptance Criteria Rules
 alwaysApply: false
+globs: ["**/requirements/**/*.md", "**/acceptance-criteria/**/*.md"]
 description: Rules for defining objective, testable, and unambiguous acceptance criteria for system behavior.
 ---
 # Acceptance Criteria Rules
@@ -44,3 +45,10 @@ Cover relevant:
 Avoid vague criteria such as "works correctly", "handles errors", or "performs well".
 
 Do not define criteria for behavior that is not part of the requirement.
+
+## Scope
+
+These rules apply only when defining, reviewing, or modifying acceptance criteria.
+
+Do not introduce acceptance criteria into technical documentation unless
+the document explicitly represents requirements or acceptance criteria.
