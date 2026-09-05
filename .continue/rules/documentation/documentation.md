@@ -1,84 +1,150 @@
 ---
 name: Global Documentation Rules
 alwaysApply: false
-description: Rules for creating, updating, validating, and maintaining accurate project documentation based on implemented behavior, requirements, architecture, and established repository conventions.
+description: Governs documentation creation, maintenance, organization, validation, and repository changes.
+
 ---
 # Documentation Rules
 
 ## Source of Truth
 
-Documentation must accurately represent the current intended system.
+Documentation MUST reflect the current intended system.
 
-Use the existing implementation, configuration, infrastructure, tests, requirements, and established documentation as evidence.
+Use the implementation, configuration, infrastructure, tests, requirements, architecture, and existing documentation as evidence.
 
-Never invent business rules, requirements, architecture, behavior, integrations, constraints, or technical details.
+MUST NOT invent behavior, requirements, business rules, architecture, integrations, constraints, or technical details.
 
-When documentation conflicts with the implementation, determine the current intended behavior before updating it.
+When sources conflict, determine the current intended behavior before updating documentation.
 
 ## Existing Documentation
 
-Preserve the project's established documentation structure, terminology, style, and conventions.
+Preserve the repository's established:
 
-Reuse existing documentation instead of creating duplicate or conflicting sources.
+* structure;
+* terminology;
+* naming;
+* formatting;
+* organization;
+* conventions.
 
-Do not remove, substantially restructure, or overwrite unrelated documentation.
+Prefer updating an existing authoritative document over creating duplicates.
 
-Update obsolete information when it is demonstrably no longer valid.
+MUST NOT modify or remove unrelated documentation.
 
-## Documentation Scope
+## Scope
 
-Keep documentation changes limited to the requested scope.
+Documentation changes MUST remain within the requested scope.
 
-Identify related documentation affected by functional, business, architectural, or technical changes and update it when necessary.
+Update related documentation only when the requested change actually affects it.
 
-Use Markdown unless the project establishes another format.
+Do not expand the task unnecessarily.
 
-## Codebase Analysis
+## Organization
 
-Before creating or substantially modifying documentation, inspect the relevant project context.
+Before creating documentation, determine:
 
-Consider applicable:
+1. the appropriate domain;
+2. the established directory;
+3. the filename convention;
+4. whether an authoritative document already exists.
 
-* source code;
-* modules and components;
-* APIs and contracts;
-* domain models;
-* persistence and migrations;
-* configuration;
-* infrastructure;
-* integrations;
-* messaging;
-* authentication and authorization;
-* tests;
-* CI/CD;
-* existing documentation.
+MUST NOT create documentation in a new location merely for convenience.
 
-Documentation must reflect actual system boundaries and behavior.
+Use Markdown unless the repository establishes another format.
 
-## Traceability
+## Documentation Task List
 
-Maintain useful traceability between requirements, acceptance criteria, implementation, and tests when practical.
+When `docs/todo_list.md` exists, it MUST be inspected before creating or substantially modifying documentation.
 
-Use references to relevant components, endpoints, modules, or tests when they provide meaningful traceability.
+Use it to identify the relevant documentation target and its current completion state.
 
-Do not create artificial references solely to satisfy documentation requirements.
+When the requested task corresponds to a task-list item:
 
-## Architecture Decisions
+1. Create or update the corresponding documentation.
+2. Verify the documentation.
+3. Update `docs/todo_list.md` after successful completion.
+4. Preserve its existing format and completion convention.
 
-Document significant architectural decisions using ADRs when appropriate.
+For Markdown checkboxes:
 
-An ADR should capture the context, problem, decision, alternatives, consequences, and relevant constraints.
+* `[ ]` means pending.
+* `[x]` means completed.
+* Completed items MUST remain in the list.
+* Change `[ ]` to `[x]` only after the corresponding documentation is successfully completed and verified.
+* MUST NOT remove completed items unless the repository explicitly uses removal as its completion convention.
 
-Do not create ADRs for trivial implementation details.
+MUST NOT change the task list format merely to mark a task as completed.
+
+If `docs/todo_list.md` does not exist, follow the repository's established structure and MUST NOT create a task list unless explicitly requested.
+
+## Repository Changes
+
+When documentation must be created, updated, moved, renamed, or deleted, use the available filesystem tools to perform the actual repository operation.
+
+Before modifying files:
+
+1. Inspect the relevant directories.
+2. Locate the target documentation.
+3. Inspect existing content when applicable.
+
+After modifying files:
+
+1. Verify the expected path.
+2. Verify the resulting content.
+3. Confirm that the change is within scope.
+
+MUST NOT claim a repository change unless the corresponding filesystem operation was successfully executed and verified.
+
+MUST NOT delete documentation unless explicitly required or clearly justified by the requested task.
+
+## Validation
+
+Before considering the task complete, verify that:
+
+1. the documentation is in the correct location;
+2. the content reflects the current intended system;
+3. existing conventions were preserved;
+4. no unsupported information was introduced;
+5. related documentation was updated when necessary;
+6. `docs/todo_list.md` was updated when applicable;
+7. the resulting changes remain within scope.
 
 ## Sensitive Information
 
-Never document secrets, credentials, tokens, private keys, passwords, connection credentials, or confidential data.
+Documentation MUST NOT contain:
 
-Use sanitized examples and placeholders.
+* secrets;
+* credentials;
+* passwords;
+* private keys;
+* access tokens;
+* confidential information.
 
-## Quality
+Use sanitized examples and placeholders when necessary.
 
-Documentation must be accurate, concise, objective, structured, consistent, technically precise, and independently understandable.
+## Completion
 
-Avoid unsupported assumptions, duplication, obsolete examples, vague requirements, and unverifiable statements.
+A documentation task is complete ONLY when the required documentation has been created or updated, the resulting files have been verified, and all applicable repository documentation updates have been completed.
+
+MUST NOT claim completion when any required operation or verification remains incomplete.
+
+## Execution
+
+When the task requires a repository documentation change, the final result MUST be an actual filesystem change.
+
+The agent MUST follow this sequence:
+
+1. Inspect the target directory and existing documentation.
+2. Determine the target file path.
+3. Read the existing target file when it exists.
+4. Generate the required documentation content.
+5. Write or update the file using the filesystem tool.
+6. Read the file again using the filesystem tool.
+7. Verify that the content and path are correct.
+8. If `docs/todo_list.md` applies, update its completion state.
+9. Read `docs/todo_list.md` again and verify the change.
+10. Only then consider the task complete.
+
+Generating Markdown in the chat does NOT constitute a repository change.
+
+MUST NOT report a documentation file as created or updated unless the filesystem write and subsequent verification succeeded.

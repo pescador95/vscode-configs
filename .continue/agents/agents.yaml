@@ -3,33 +3,40 @@ version: 1.0.0
 schema: v1
 
 models:
-  - name: Bonsai Agent
+  - name: Bonsai 27B
     provider: lmstudio
     apiBase: http://localhost:1234/v1
     model: prism-ml/bonsai-27b
     roles:
       - chat
+      - edit
     contextLength: 32768
     maxTokens: 4096
 
-  - name: Bonsai Edit & Apply
+  - name: FastApply 1.5B
     provider: lmstudio
     apiBase: http://localhost:1234/v1
-    model: prism-ml/bonsai-27b
+    model: fastapply-1.5b-v1.0_gguf
     roles:
-      - edit
       - apply
-    contextLength: 32768
-    maxTokens: 12288
-      
-  - name: Qwen AutoComplete
+    contextLength: 8192
+    maxTokens: 4096
+
+  - name: Qwen 1.5b
     provider: lmstudio
     apiBase: http://localhost:1234/v1
     model: qwen2.5-coder-1.5b-instruct
     roles:
       - autocomplete
-    contextLength: 8192
-    maxTokens: 512   
+    contextLength: 4096
+    maxTokens: 256
+    autocompleteOptions:
+      maxPromptTokens: 1536
+      debounceDelay: 250
+      useCache: true
+      useImports: true
+      useRecentlyEdited: true
+      onlyMyCode: true
 
   - name: Embeddings
     provider: lmstudio
@@ -37,6 +44,9 @@ models:
     model: nomic-embed-code
     roles:
       - embed
+embedOptions:
+  maxChunkSize: 256
+  maxBatchSize: 2      
 
 context:
   - provider: codebase

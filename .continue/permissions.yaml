@@ -22,10 +22,9 @@ allow:
   - CheckBackgroundJob
   - ReportFailure
   - UploadArtifact
-
-ask:
   - Edit
   - MultiEdit
+ask:
   - Bash
 
 exclude: []
