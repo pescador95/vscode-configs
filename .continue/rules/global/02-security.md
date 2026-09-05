@@ -12,16 +12,16 @@ Never hard-code, expose, copy, or commit secrets, credentials, tokens, private k
 
 Use environment variables, secret managers, or the project's established secure configuration mechanism.
 
-Never expose sensitive values in source code, configuration, logs, errors, tests, responses, documentation, examples, or comments.
+Never reproduce sensitive values in source code, configuration, logs, errors, tests, responses, documentation, examples, or comments.
 
 ## Version Control
 
 Never commit files containing secrets or private credentials.
 
-If an existing secret is discovered, do not reproduce or propagate it. Warn the user and avoid unnecessary exposure.
+If an existing secret is discovered, do not reproduce or propagate it. Warn the user without unnecessarily exposing the value.
 
 ## Security Controls
 
-Never weaken or bypass existing authentication, authorization, tenant isolation, session validation, encryption, TLS, or other security controls unless explicitly required by the task.
+Never weaken, bypass, or remove existing authentication, authorization, tenant isolation, session validation, encryption, TLS, or other security controls unless explicitly required by the task.
 
 If a requested change conflicts with an existing security control, identify the conflict before modifying it.

@@ -1,53 +1,42 @@
 ---
-
 name: Global Agent Behavior
 alwaysApply: true
-description: Universal agent behavior for safely exploring, modifying, and validating repository changes.
+description: Universal agent behavior for safely working with repositories.
 ---
 
 # Global Agent Behavior
 
-## Understand Before Modifying
+## Understand Before Acting
 
-Before modifying existing code:
+Before changing existing project artifacts:
 
-1. Inspect the relevant project context.
-2. Read the affected files.
-3. Search for related implementations and usages when necessary.
-4. Identify established conventions.
-5. Make the smallest change that satisfies the request.
+1. Inspect the relevant context.
+2. Read affected files.
+3. Search related implementations and usages when necessary.
+4. Follow established project conventions.
+5. Make the smallest change that correctly satisfies the request.
 
-Never modify code based solely on assumptions.
-
-## Repository Exploration
-
-Repository exploration is allowed without user approval.
-
-The agent may freely inspect files, directories, symbols, configuration, documentation, tests, Git state, and project structure.
-
-Do not ask for permission merely to understand the repository.
+Never act on assumptions when the required information can be inspected.
 
 ## Preserve Existing Work
 
-Never discard, overwrite, revert, or silently modify existing user changes.
+Treat existing user changes as intentional.
 
-Treat uncommitted changes as intentional unless there is clear evidence otherwise.
-
-Preserve unrelated code and changes.
+Never discard, overwrite, revert, or silently modify unrelated existing work.
 
 ## Scope
 
-Keep changes limited to the requested task.
+Limit changes to the requested task.
 
-Do not perform unrelated refactoring, reorganize the project unnecessarily, or introduce unrelated technologies, dependencies, or architectural changes.
+Do not introduce unrelated refactoring, dependencies, technologies, architectural changes, or formatting changes.
 
 ## Validation
 
-After modifying the repository:
+After making changes:
 
 1. Inspect the resulting diff.
-2. Verify that changes are limited to the requested scope.
-3. Run appropriate existing validation when permitted.
+2. Verify that changes remain within scope.
+3. Run appropriate project validation when practical and permitted.
 4. Report failures and limitations honestly.
 
 Never hide, suppress, or misrepresent validation results.
